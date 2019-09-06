@@ -3,11 +3,9 @@ const WebSocket = require('ws');
 
 const port = 8999
 
-const server = express().listen(PORT, () => console.log(`Listening on ${ PORT }`));
+const server = express().listen(port, () => console.log(`Waiting for connection in port ${port}..`));
 
-const wss = new WebSocket.Server({ port: port });
-
-console.log(`Waiting for connection in port ${port}..`);
+const wss = new WebSocket.Server({ server });
 
 wss.on('connection', (ws) => {
 
