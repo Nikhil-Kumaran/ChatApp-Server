@@ -6,7 +6,7 @@ const port = 8999
 
 const wss = new WebSocket.Server({ port: port });
 
-console.log(`Waiting for connection in port ${port}...`);
+console.log(`Waiting for connection in port ${port}..`);
 
 wss.on('connection', (ws) => {
 
