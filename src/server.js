@@ -1,7 +1,7 @@
 const express = require('express');
 const WebSocket = require('ws');
 
-const port = 8999
+const port = process.env.PORT || 8999
 
 const server = express().listen(port, () => console.log(`Waiting for connection in port ${port}..`));
 
