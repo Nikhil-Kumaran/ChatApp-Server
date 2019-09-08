@@ -1,11 +1,10 @@
-const express = require('express');
 const WebSocket = require('ws');
 
 const port = process.env.PORT || 8999
 
-const server = express().listen(port, () => console.log(`Waiting for connection in port ${port}..`));
+const wss = new WebSocket.Server({ port: port });
 
-const wss = new WebSocket.Server({ server });
+console.log(`Waiting for connection in port ${port}...`);
 
 wss.on('connection', (ws) => {
 
@@ -21,8 +20,6 @@ wss.on('connection', (ws) => {
         }
         
     });
-
-    ws.on('close', () => console.log('Client disconnected'));
 });
 
 function broadcast(message, ws) {
